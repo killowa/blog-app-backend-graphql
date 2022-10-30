@@ -19,7 +19,7 @@ module Types
     end
 
     def posts
-      Post.posts_scope(context[:current_user])
+      post = PostPolicy::Scope.new(context[:current_user], Post).resolve
     end
   end
 end

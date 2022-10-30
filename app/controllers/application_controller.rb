@@ -3,6 +3,7 @@
 # Parent controller whom all controllers iherit from also it's where Authorization logic exists
 class ApplicationController < ActionController::API
     # before_action :authenticate_request, except: [:login]
+    include Pundit::Authorization
   
     def current_user
       @current_user ||= authenticated_current
