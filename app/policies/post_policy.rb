@@ -10,7 +10,7 @@ class PostPolicy < ApplicationPolicy
         end
     end
 
-    def udate?
-        return false
+    def update?
+        return record.user.id == user.id
     end
 end

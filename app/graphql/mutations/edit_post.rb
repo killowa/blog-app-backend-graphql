@@ -8,6 +8,7 @@ module Mutations
 
         def resolve(**params)
             post = Post.find_by(id: params[:id])
+            Pundit.authorize(context[:current_user], post, :update?)
             
             { post: post, errors: [] }
         end
